@@ -1,4 +1,4 @@
-<img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/aocct.png" alt="sorting" />
+<img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/ct.png" alt="sorting" />
 
 # Advent of Code
 𝙰𝚍𝚟𝚎𝚗𝚝 𝚘𝚏 𝙲𝚘𝚍𝚎 𝚒𝚜 𝚊𝚗 𝙰𝚍𝚟𝚎𝚗𝚝 𝚌𝚊𝚕𝚎𝚗𝚍𝚊𝚛 𝚘𝚏 𝚜𝚖𝚊𝚕𝚕 𝚙𝚛𝚘𝚐𝚛𝚊𝚖𝚖𝚒𝚗𝚐 𝚙𝚞𝚣𝚣𝚕𝚎𝚜 𝚏𝚘𝚛 𝚊 𝚟𝚊𝚛𝚒𝚎𝚝𝚢 𝚘𝚏 𝚜𝚔𝚒𝚕𝚕 𝚕𝚎𝚟𝚎𝚕𝚜 𝚝𝚑𝚊𝚝 𝚌𝚊𝚗 𝚋𝚎 𝚜𝚘𝚕𝚟𝚎𝚍 𝚒𝚗 𝚊𝚗𝚢 𝚙𝚛𝚘𝚐𝚛𝚊𝚖𝚖𝚒𝚗𝚐 𝚕𝚊𝚗𝚐𝚞𝚊𝚐𝚎 𝚢𝚘𝚞 𝚕𝚒𝚔𝚎. 
