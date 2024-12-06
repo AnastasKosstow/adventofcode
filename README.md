@@ -12,22 +12,17 @@
 
 <h4 align="left">𝙻𝚊𝚗𝚐𝚞𝚊𝚐𝚎𝚜 𝚞𝚜𝚎𝚍 𝚏𝚘𝚛 𝚒𝚖𝚙𝚕𝚎𝚖𝚎𝚗𝚝𝚊𝚝𝚒𝚘𝚗𝚜:</h4>
 <p align="left">
-  <img src="https://github.com/AnastasKosstow/algorithms/blob/main/assets/logo/rust-logo.png" alt="rust" width="55" height="55"/>
   <img src="https://github.com/AnastasKosstow/algorithms/blob/main/assets/logo/csharp-logo.png" alt="csharp" width="55" height="55"/>
 </p>
 
 
 
- * <b>Day-1 |
-   <a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-1/HistorianHysteria.cs">C#</a> - <a href="">Rust</a>
- * <b>Day-2 |
-   <a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-2/RedNosedReports.cs">C#</a> - <a href="">Rust</a>
- * <b>Day-3 |
-   <a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-3/MullItOver.cs">C#</a> - <a href="">Rust</a>
- * <b>Day-4 |
-   <a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-4/CeresSearch.cs">C#</a> - <a href="">Rust</a>
- * <b>Day-5 |
-   <a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-5/PrintQueue.cs">C#</a> - <a href="">Rust</a>
+ * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-1/HistorianHysteria.cs">Day-1</a>
+ * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-2/RedNosedReports.cs">Day-2</a>
+ * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-3/MullItOver.cs">Day-3</a>
+ * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-4/CeresSearch.cs">Day-4</a>
+ * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-5/PrintQueue.cs">Day-5</a>
+ * <b><a href="">Day-6</a>
 
 <br>
 <img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/ct.png" />
