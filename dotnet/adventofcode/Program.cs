@@ -1,1 +1,3 @@
 ﻿using adventofcode;
+
+GuardGallivant.SolutionPartTwo();
