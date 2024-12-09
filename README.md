@@ -24,6 +24,7 @@
  * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-5/PrintQueue.cs">Day-5</a>
  * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-6/GuardGallivant.cs">Day-6</a>
  * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-7/BridgeRepair.cs">Day-7</a>
+ * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-8/ResonantCollinearity.cs">Day-8</a>
 
 <br>
 <img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/ct.png" />
