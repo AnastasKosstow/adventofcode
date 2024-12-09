@@ -31,7 +31,7 @@ internal partial class MullItOver
 
     internal static void SolutionPartTwo()
     {
-        int result = 0;
+        decimal result = 0;
         bool enabled = true;
 
         foreach (Match match in MultiplyWithInstructionsPattern.Matches(Input.Value).Cast<Match>())

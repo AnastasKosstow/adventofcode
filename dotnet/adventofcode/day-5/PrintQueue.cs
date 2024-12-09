@@ -20,6 +20,12 @@ internal class PrintQueue
         var visited = new HashSet<int>();
         var numberSet = new HashSet<int>(numbers);
 
+        for (int idx = 0; idx < numbers.Length; idx++)
+        {
+            if (!visited.Contains(numbers[idx]))
+                DFS(numbers[idx]);
+        }
+
         void DFS(int node)
         {
             if (visited.Contains(node))
@@ -38,12 +44,6 @@ internal class PrintQueue
 
             visited.Add(node);
             result.Insert(0, node);
-        }
-
-        for (int idx = 0; idx < numbers.Length; idx++)
-        {
-            if (!visited.Contains(numbers[idx]))
-                DFS(numbers[idx]);
         }
 
         return result;
