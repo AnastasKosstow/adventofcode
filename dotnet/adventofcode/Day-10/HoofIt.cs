@@ -3,6 +3,7 @@
 internal class HoofIt
 {
     private static HashSet<(int, int, int, int)> HikingTrails = [];
+    private static List<(int, int, int, int)> HikingTrailsWithUniquePaths = [];
 
     private static readonly Lazy<int[,]> Input = new(() =>
     {
@@ -65,6 +66,24 @@ internal class HoofIt
         return coordinates;
     }
 
+    private static void ValidateCoordinatesForHashSet(int[] startCoordinates, List<int[]> trailCoordinates)
+    {
+        foreach (var coordinate in trailCoordinates)
+        {
+            var trail = (startCoordinates[0], startCoordinates[1], coordinate[0], coordinate[1]);
+            if (!HikingTrails.Contains(trail))
+                HikingTrails.Add(trail);
+        }
+    }
+
+    private static void ValidateCoordinatesForList(int[] startCoordinates, List<int[]> trailCoordinates)
+    {
+        foreach (var coordinate in trailCoordinates)
+        {
+            HikingTrailsWithUniquePaths.Add((startCoordinates[0], startCoordinates[1], coordinate[0], coordinate[1]));
+        }
+    }
+
     internal static void SolutionPartOne()
     {
         int[,] map = Input.Value;
@@ -73,21 +92,11 @@ internal class HoofIt
         {
             for (int col = 0; col < map.GetLength(1); col++)
             {
-                if (map[row,col] == 0)
+                if (map[row, col] == 0)
                 {
                     var coordinates = FindPath(row, col);
-                    ValidateCoordinates(new[] { row, col }, coordinates);
+                    ValidateCoordinatesForHashSet(new[] { row, col }, coordinates);
                 }
-            }
-        }
-
-        void ValidateCoordinates(int[] startCoordinates, List<int[]> trailCoordinates)
-        {
-            foreach (var coordinate in trailCoordinates)
-            {
-                var trail = (startCoordinates[0], startCoordinates[1], coordinate[0], coordinate[1]);
-                if (!HikingTrails.Contains(trail))
-                     HikingTrails.Add(trail);
             }
         }
 
@@ -98,8 +107,22 @@ internal class HoofIt
 
     internal static void SolutionPartTwo()
     {
+        int[,] map = Input.Value;
 
+        for (int row = 0; row < map.GetLength(0); row++)
+        {
+            for (int col = 0; col < map.GetLength(1); col++)
+            {
+                if (map[row, col] == 0)
+                {
+                    var coordinates = FindPath(row, col);
+                    ValidateCoordinatesForList(new[] { row, col }, coordinates);
+                }
+            }
+        }
 
-        // result: 
+        var result = HikingTrailsWithUniquePaths.Count;
+
+        // result: 1530
     }
 }

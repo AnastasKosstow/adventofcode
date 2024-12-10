@@ -1,4 +1,6 @@
-﻿namespace adventofcode;
+﻿using System.Diagnostics;
+
+namespace adventofcode;
 
 internal class GuardGallivant
 {
