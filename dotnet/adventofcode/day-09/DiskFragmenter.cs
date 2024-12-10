@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-
-namespace adventofcode;
+﻿namespace adventofcode;
 
 internal class DiskFragmenter
 {
     private static Lazy<int[]> Input = new(() =>
     {
-        var lines = File.ReadAllLines("day-9/input.txt");
+        var lines = File.ReadAllLines("day-09/input.txt");
         var input = lines[0].Select(ch => int.Parse(ch.ToString())).ToArray();
 
         return input;
@@ -61,11 +59,10 @@ internal class DiskFragmenter
                 break;
             }
 
-            result += (idx * int.Parse(file[idx].ToString()));
+            result += idx * int.Parse(file[idx]);
         }
 
         // result: 6340197768906
-        // benchmark: ~35 milliseconds
     }
 
     internal static void SolutionPartTwo()
@@ -73,41 +70,45 @@ internal class DiskFragmenter
         var map = Input.Value;
 
         int fileIndex = 0;
-        var file = new List<(string, int)>();
+        var file = new List<Block>();
         for (int idx = 0; idx < map.Length; idx++)
         {
             if (idx % 2 == 0)
             {
-                file.Add((fileIndex.ToString(), map[idx]));
+                file.Add(new Block(fileIndex.ToString(), map[idx]));
                 fileIndex++;
             }
             else
             {
-                file.Add((".", map[idx]));
+                file.Add(new Block(".", map[idx]));
             }
         }
 
         for (int backIdx = file.Count - 1; backIdx >= 0; backIdx--)
         {
-            if (file[backIdx].Item1 == ".")
+            if (file[backIdx].Symbol == ".")
             {
                 continue;
             }
 
             for (int frontIdx = 0; frontIdx < backIdx; frontIdx++)
             {
-                if (file[frontIdx].Item1 == ".")
+                if (file[frontIdx].Symbol == ".")
                 {
-                    if (file[frontIdx].Item2 >= file[backIdx].Item2)
+                    if (file[frontIdx].Count >= file[backIdx].Count)
                     {
-                        (file[frontIdx], file[backIdx]) = (file[backIdx], file[frontIdx]);
-                        if (file[backIdx].Item2 - file[frontIdx].Item2 == 0)
+                        var diff = file[frontIdx].Count - file[backIdx].Count;
+                        if (diff == 0)
                         {
-                            file.RemoveAt(backIdx);
+                            (file[frontIdx], file[backIdx]) = (file[backIdx], file[frontIdx]);
                         }
                         else
                         {
-                            file[frontIdx] = (file[frontIdx].Item1, file[frontIdx].Item2 - file[backIdx].Item2);
+                            var item = file[backIdx];
+                            file[backIdx] = new Block(".", file[backIdx].Count);
+                            file[frontIdx] = new Block(".", diff);
+
+                            file.Insert(frontIdx, item);
                         }
 
                         break;
@@ -117,17 +118,26 @@ internal class DiskFragmenter
         }
 
         decimal result = 0;
+        int multiplier = 0;
         for (int idx = 0; idx < file.Count; idx++)
         {
-            if (file[idx].Item1 == ".")
+            for (int countIdx = 0; countIdx < file[idx].Count; countIdx++)
             {
-                continue;
-            }
+                if (file[idx].Symbol != ".")
+                {
+                    result += multiplier * int.Parse(file[idx].Symbol);
+                }
 
-            result += (idx * int.Parse(file[idx].Item1.ToString()));
+                multiplier++;
+            }
         }
 
-        // result: 
-        // benchmark: ~35 milliseconds
+        // result: 6363913128533
+    }
+
+    private class Block(string symbol, int count)
+    {
+        internal string Symbol { get; } = symbol;
+        internal int Count { get; set; } = count;
     }
 }

@@ -8,7 +8,7 @@ internal class HistorianHysteria
         int[] right = new int[1000];
         int idx = 0;
 
-        foreach (var line in File.ReadAllLines("day-1/input.txt"))
+        foreach (var line in File.ReadAllLines("day-01/input.txt"))
         {
             var separatorIdx = line.IndexOf(' ');
             left[idx] = int.Parse(line[..separatorIdx]);

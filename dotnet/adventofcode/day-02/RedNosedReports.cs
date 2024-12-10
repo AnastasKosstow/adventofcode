@@ -4,7 +4,7 @@ internal class RedNosedReports
 {
     private static readonly Lazy<Memory<int[]>> Input = new(() =>
     {
-        var lines = File.ReadAllLines("day-2/input.txt");
+        var lines = File.ReadAllLines("day-02/input.txt");
         var reports = new int[lines.Length][];
 
         for (int idx = 0; idx < lines.Length; idx++)

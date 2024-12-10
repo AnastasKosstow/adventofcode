@@ -4,7 +4,7 @@ internal class GuardGallivant
 {
     private static Lazy<char[][]> Input = new(() =>
     {
-        var lines = File.ReadAllLines("day-6/input.txt");
+        var lines = File.ReadAllLines("day-06/input.txt");
         var input = lines.Select(line => line.ToCharArray()).ToArray();
 
         for (int row = 0; row < lines.Length; row++)

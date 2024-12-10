@@ -2,7 +2,7 @@
 {
     private static Lazy<string[]> Input = new(() =>
     {
-        var lines = File.ReadAllLines("day-8/input.txt");
+        var lines = File.ReadAllLines("day-08/input.txt");
         var input = lines.Select(line => line).ToArray();
 
         return input;

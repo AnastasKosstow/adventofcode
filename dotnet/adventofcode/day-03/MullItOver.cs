@@ -10,7 +10,7 @@ internal partial class MullItOver
 
     private static readonly Lazy<string> Input = new(() =>
     {
-        var input = File.ReadAllText("day-3/input.txt");
+        var input = File.ReadAllText("day-03/input.txt");
 
         return input;
     });

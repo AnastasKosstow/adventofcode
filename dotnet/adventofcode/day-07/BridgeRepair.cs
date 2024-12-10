@@ -4,7 +4,7 @@ internal class BridgeRepair
 {
     private static Lazy<string[]> Input = new(() =>
     {
-        var lines = File.ReadAllLines("day-7/input.txt");
+        var lines = File.ReadAllLines("day-07/input.txt");
         var input = lines.Select(line => line).ToArray();
         
         return input;

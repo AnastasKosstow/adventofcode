@@ -4,7 +4,7 @@ internal class PrintQueue
 {
     private static readonly Lazy<(Memory<string> rules, Memory<string> updates)> Input = new(() =>
     {
-        var input = File.ReadAllText("day-5/input.txt");
+        var input = File.ReadAllText("day-05/input.txt");
 
         string[] parts = input.Split(new[] { Environment.NewLine + Environment.NewLine }, StringSplitOptions.None);
 

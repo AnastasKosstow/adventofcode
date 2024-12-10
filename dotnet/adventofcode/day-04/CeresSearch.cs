@@ -7,7 +7,7 @@ internal class CeresSearch
 
     private static readonly Lazy<Memory<string>> Input = new(() =>
     {
-        var lines = File.ReadAllLines("day-4/input.txt");
+        var lines = File.ReadAllLines("day-04/input.txt");
         var input = new string[lines.Length];
 
         for (int idx = 0; idx < lines.Length; idx++)
