@@ -1,6 +1,8 @@
-<div align="center">
-  <img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/aoc.png" />
-</div>
+<a href="https://adventofcode.com/">
+  <div align="center">
+    <img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/aoc.png" />
+  </div>
+</a>
 
 ---
 
