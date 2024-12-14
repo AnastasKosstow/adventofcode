@@ -17,8 +17,6 @@
   <img src="https://github.com/AnastasKosstow/algorithms/blob/main/assets/logo/csharp-logo.png" alt="csharp" width="55" height="55"/>
 </p>
 
-
-
  * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-01/HistorianHysteria.cs">Day-1</a>
  * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-02/RedNosedReports.cs">Day-2</a>
  * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-03/MullItOver.cs">Day-3</a>
@@ -32,6 +30,7 @@
  * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-11/PlutonianPebbles.cs">Day-11</a>
  * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-12/GardenGroups.cs">Day-12</a>
  * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-13/ClawContraption.cs">Day-13</a>
+ * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-14/RestroomRedoubt.cs">Day-14</a>
  
 <br>
 <img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/ct.png" />
