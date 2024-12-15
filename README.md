@@ -17,20 +17,117 @@
   <img src="https://github.com/AnastasKosstow/algorithms/blob/main/assets/logo/csharp-logo.png" alt="csharp" width="55" height="55"/>
 </p>
 
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-01/HistorianHysteria.cs">Day-1</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-02/RedNosedReports.cs">Day-2</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-03/MullItOver.cs">Day-3</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-04/CeresSearch.cs">Day-4</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-05/PrintQueue.cs">Day-5</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-06/GuardGallivant.cs">Day-6</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-07/BridgeRepair.cs">Day-7</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-08/ResonantCollinearity.cs">Day-8</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-09/DiskFragmenter.cs">Day-9</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/Day-10/HoofIt.cs">Day-10</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-11/PlutonianPebbles.cs">Day-11</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-12/GardenGroups.cs">Day-12</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-13/ClawContraption.cs">Day-13</a>
- * <b><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/day-14/RestroomRedoubt.cs">Day-14</a>
- 
+
+## Solutions:
+<table>
+    <thead>
+        <tr>
+            <td colspan="7" align="center"><b>December 2024</b></td>
+        </tr>
+        <tr>
+            <th align="center">Mon</th>
+            <th align="center">Tue</th>
+            <th align="center">Wed</th>
+            <th align="center">Thu</th>
+            <th align="center">Fri</th>
+            <th align="center">Sat</th>
+            <th align="center">Sun</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="center"> </td>
+            <td align="center"> </td>
+            <td align="center"> </td>
+            <td align="center"> </td>
+            <td align="center"> </td>
+            <td align="center"> </td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-01/HistorianHysteria.cs"><b>1</b></a></td>
+        </tr>
+        <tr>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-02/RedNosedReports.cs"><b>2</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-03/MullItOver.cs"><b>3</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-04/CeresSearch.cs"><b>4</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-05/PrintQueue.cs"><b>5</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-06/GuardGallivant.cs"><b>6</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-07/BridgeRepair.cs"><b>7</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-08/ResonantCollinearity.cs"><b>8</b></a></td>
+        </tr>
+        <tr>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-09/DiskFragmenter.cs"><b>9</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/Day-10/HoofIt.cs"><b>10</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-11/PlutonianPebbles.cs"><b>11</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-12/GardenGroups.cs"><b>12</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-13/ClawContraption.cs"><b>13</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-14/RestroomRedoubt.cs"><b>14</b></a></td>
+            <td align="center"><b>15</b></td>
+        </tr>
+        <tr>
+            <td align="center"><b>16</b></td>
+            <td align="center"><b>17</b></td>
+            <td align="center"><b>18</b></td>
+            <td align="center"><b>19</b></td>
+            <td align="center"><b>20</b></td>
+            <td align="center"><b>21</b></td>
+            <td align="center"><b>22</b></td>
+        </tr>
+        <tr>
+            <td align="center"><b>23</b></td>
+            <td align="center"><b>24</b></td>
+            <td align="center"><b>25</b></td>
+            <td align="center"> </td>
+            <td align="center"> </td>
+            <td align="center"> </td>
+            <td align="center"> </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<br>
+
+> [!IMPORTANT]
+> In order to start the solutions, first an instance of `AdventOfCodeBuilder` must be created inside `Program.cs`
+>
+> ```C#
+> // Program.cs
+>
+> using adventofcode.builder;
+> 
+> var adventofcode = new AdventOfCodeBuilder();
+> ```
+>
+> Now we can choose to run one solution
+>
+> ```C#
+> adventofcode
+>     .Select(selector => selector.HistorianHysteria)
+>     .Run();
+> ```
+> or several solutions
+>
+> ```C#
+> adventofcode
+>    .Select(
+>        selector => selector.HistorianHysteria,
+>        selector => selector.RedNosedReports,
+>        selector => selector.MullItOver
+>    )
+>    .Run();
+> ```
+> or instead of puzzle names, we can use puzzle days
+>
+> ```C#
+> adventofcode
+>    .Select(
+>        selector => selector.Day1,
+>        selector => selector.Day2,
+>        selector => selector.Day3
+>    )
+>    .Run();
+> ```
+
+---
+
 <br>
 <img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/ct.png" />
