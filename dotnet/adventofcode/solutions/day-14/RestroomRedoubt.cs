@@ -121,7 +121,7 @@ public partial class RestroomRedoubt : ISolution
         }
     }
 
-    internal long SolutionPartOne()
+    private long SolutionPartOne()
     {
         var robots = Input.Value;
         var seconds = 100;
@@ -130,7 +130,7 @@ public partial class RestroomRedoubt : ISolution
         return result;
     }
 
-    internal void SolutionPartTwo()
+    private void SolutionPartTwo()
     {
         // print grid
     }
