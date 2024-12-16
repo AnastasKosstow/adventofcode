@@ -69,14 +69,14 @@ public class WarehouseWoes : ISolution
         return [0, 0];
     }
 
-    private int SumBoxesCoordinates(char[,] warehouse)
+    private long SumBoxesCoordinates(char[,] warehouse, char box)
     {
-        int result = 0;
+        long result = 0;
         for (int row = 1; row < warehouse.GetLength(0) - 1; row++)
         {
             for (int col = 1; col < warehouse.GetLength(1) - 1; col++)
             {
-                if (warehouse[row, col] == 'O')
+                if (warehouse[row, col] == box)
                     result += 100 * row + col;
             }
         }
@@ -84,7 +84,7 @@ public class WarehouseWoes : ISolution
         return result;
     }
 
-    private int SolutionPartOne()
+    private long SolutionPartOne()
     {
         var warehouse = (char[,])Input.Warehouse.Clone();
         var instructions = Input.Instructions;
@@ -130,29 +130,30 @@ public class WarehouseWoes : ISolution
             currentPosition = nextPosition;
         }
 
-        var result = SumBoxesCoordinates(warehouse);
+        var result = SumBoxesCoordinates(warehouse, 'O');
         return result;
     }
 
-    private int SolutionPartTwo()
+    private long SolutionPartTwo()
     {
         var warehouse = (char[,])Input.Warehouse.Clone();
         var instructions = Input.Instructions;
 
-        for (int i = 0; i < warehouse.GetLength(0); i++)
-        {
-            for (int j = 0; j < warehouse.GetLength(1); j++)
-            {
-                Console.Write(warehouse[i, j]);
-            }
-            Console.WriteLine();
-        }
-
         var scaledUpWarehouse = ScaleUpWarehouse(warehouse);
 
-        var currentPosition = FindStartingPosition(warehouse);
+        var currentPosition = FindStartingPosition(scaledUpWarehouse);
         for (int idx = 0; idx < instructions.Length; idx++)
         {
+
+            for (int i = 0; i < scaledUpWarehouse.GetLength(0); i++)
+            {
+                for (int j = 0; j < scaledUpWarehouse.GetLength(1); j++)
+                {
+                    Console.Write(scaledUpWarehouse[i, j]);
+                }
+                Console.WriteLine();
+            }
+
             var direction = Directions[instructions[idx]];
 
             var nextPosition = new[] { currentPosition[0] + direction[0], currentPosition[1] + direction[1] };
@@ -165,13 +166,111 @@ public class WarehouseWoes : ISolution
             {
                 if (direction[0] == 0)
                 {
-                    if (direction[1] == '[')
+                    var move = Move([nextPosition[0], nextPosition[1]]);
+                    if (!move)
                     {
-                        
+                        continue;
                     }
-                    else if (direction[1] == ']')
-                    {
 
+                    bool Move(int[] position)
+                    {
+                        var move = false;
+                        if (scaledUpWarehouse[position[0], position[1]] is '[' or ']')
+                        {
+                            position[0] += direction[0];
+                            position[1] += direction[1];
+                            move = Move(position);
+                        }
+
+                        if (scaledUpWarehouse[position[0], position[1]] == '.')
+                        {
+                            position[0] -= direction[0];
+                            position[1] -= direction[1];
+                            return true;
+                        }
+
+                        if (move)
+                        {
+                            scaledUpWarehouse[position[0] + direction[0], position[1] + direction[1]] = scaledUpWarehouse[position[0], position[1]];
+                            position[0] -= direction[0];
+                            position[1] -= direction[1];
+                            return true;
+                        }
+
+                        return false;
+                    }
+                }
+
+                if (direction[1] == 0)
+                {
+                    if (scaledUpWarehouse[nextPosition[0], nextPosition[1]] == '[')
+                    {
+                        var canMove = Move([nextPosition[0], nextPosition[1]], [nextPosition[0], nextPosition[1] + 1]);
+                        if (canMove)
+                        {
+                            Move([nextPosition[0], nextPosition[1]], [nextPosition[0], nextPosition[1] + 1], true);
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    else if (scaledUpWarehouse[nextPosition[0], nextPosition[1]] == ']')
+                    {
+                        var canMove = Move([nextPosition[0], nextPosition[1] - 1], [nextPosition[0], nextPosition[1]]); 
+                        if (canMove)
+                        {
+                            Move([nextPosition[0], nextPosition[1] - 1], [nextPosition[0], nextPosition[1]], true);
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+
+                    bool Move(int[] leftPosition, int[] rightPosition, bool moveBoxes = false)
+                    {
+                        var move = false;
+                        if (scaledUpWarehouse[leftPosition[0], leftPosition[1]] == '[')
+                        {
+                            if (scaledUpWarehouse[leftPosition[0] + direction[0], leftPosition[1]] == '[')
+                            {
+                                move = Move([leftPosition[0] + direction[0], leftPosition[1]], [rightPosition[0] + direction[0], rightPosition[1]], moveBoxes);
+                            }
+                            else if (scaledUpWarehouse[leftPosition[0] + direction[0], leftPosition[1]] == ']')
+                            {
+                                move = Move([leftPosition[0] + direction[0], leftPosition[1] + direction[1] - 1], [leftPosition[0] + direction[0], leftPosition[1]], moveBoxes);
+                            }
+                        }
+                        
+                        if (scaledUpWarehouse[rightPosition[0], rightPosition[1]] == ']') 
+                        {
+                            if (scaledUpWarehouse[rightPosition[0] + direction[0], rightPosition[1]] == '[')
+                            {
+                                move = Move([rightPosition[0] + direction[0], rightPosition[1] + direction[1]], [rightPosition[0] + direction[0], rightPosition[1] + 1], moveBoxes);
+                            }
+                            else if (scaledUpWarehouse[rightPosition[0] + direction[0], rightPosition[1]] == ']')
+                            {
+                                move = Move([leftPosition[0] + direction[0], leftPosition[1]], [rightPosition[0] + direction[0], rightPosition[1]], moveBoxes);
+                            }
+                        }
+
+                        if (scaledUpWarehouse[leftPosition[0] + direction[0], leftPosition[1] + direction[1]] == '.' && 
+                            scaledUpWarehouse[rightPosition[0] + direction[0], rightPosition[1] + direction[1]] == '.')
+                        {
+                            if (moveBoxes)
+                            {
+                                scaledUpWarehouse[leftPosition[0] + direction[0], leftPosition[1]] = scaledUpWarehouse[leftPosition[0], leftPosition[1]];
+                                scaledUpWarehouse[rightPosition[0] + direction[0], rightPosition[1]] = scaledUpWarehouse[rightPosition[0], rightPosition[1]];
+                                scaledUpWarehouse[leftPosition[0], leftPosition[1]] = '.';
+                                scaledUpWarehouse[rightPosition[0], rightPosition[1]] = '.';
+                            }
+                            else
+                            {
+                                return true;
+                            }
+                        }
+                        return move;
                     }
                 }
             }
@@ -181,7 +280,16 @@ public class WarehouseWoes : ISolution
             currentPosition = nextPosition;
         }
 
-        var result = SumBoxesCoordinates(warehouse);
+        for (int i = 0; i < scaledUpWarehouse.GetLength(0); i++)
+        {
+            for (int j = 0; j < scaledUpWarehouse.GetLength(1); j++)
+            {
+                Console.Write(scaledUpWarehouse[i, j]);
+            }
+            Console.WriteLine();
+        }
+
+        var result = SumBoxesCoordinates(scaledUpWarehouse, '[');
         return result;
     }
 

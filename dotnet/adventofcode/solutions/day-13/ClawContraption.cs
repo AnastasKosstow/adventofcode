@@ -14,7 +14,8 @@ public partial class ClawContraption : ISolution
     public (string partOne, string partTwo) Execute()
     {
         var partOne = SolutionPartOne();
-        return (partOne.ToString(), string.Empty);
+        var partTwo = SolutionPartTwo();
+        return (partOne.ToString(), partTwo.ToString());
     }
 
     public void SetInput(string inputSource)
@@ -30,14 +31,14 @@ public partial class ClawContraption : ISolution
         });
     }
 
-    internal int SolutionPartOne()
+    internal long SolutionPartOne()
     {
         var clawMachines = Input.Value;
 
-        int result = 0;
+        long result = 0;
         foreach (var configuration in clawMachines)
         {
-            var tokens = CalculateCheapestWay(configuration);
+            long tokens = CalculateCheapestWay(configuration);
             if (tokens != int.MaxValue)
             {
                 result += tokens;
@@ -47,57 +48,102 @@ public partial class ClawContraption : ISolution
         return result;
     }
 
-    internal void SolutionPartTwo()
+    internal long SolutionPartTwo()
     {
         var clawMachines = Input.Value;
 
+        long result = 0;
+        foreach (var configuration in clawMachines)
+        {
+            long tokens = CalculateCheapestWay(configuration, true);
+            if (tokens != int.MaxValue)
+            {
+                result += tokens;
+            }
+        }
+
+        return result;
     }
 
-    private static int CalculateCheapestWay(string[] clawMachineConfiguration)
+    private static long CalculateCheapestWay(string[] clawMachineConfiguration, bool includeConversion = false)
     {
         (int x, int y) A = ParseCoordinateLine(clawMachineConfiguration[0]);
         (int x, int y) B = ParseCoordinateLine(clawMachineConfiguration[1]);
         (int x, int y) prize = ParseCoordinateLine(clawMachineConfiguration[2]);
 
-        var result = int.MaxValue;
-        var b_index = 1;
-        while (true)
+        var prizeX = (double)prize.x;
+        var prizeY = (double)prize.y;
+        if (includeConversion)
         {
-            var x_position = B.x * b_index;
-            var y_position = B.y * b_index;
-            var a_index = 0;
+            prizeX += 10000000000000;
+            prizeY += 10000000000000;
+        }
+        
+        var aX = (double)A.x;
+        var aY = (double)A.y;
+        var bX = (double)B.x;
+        var bY = (double)B.y;
 
-            if (x_position > prize.x || y_position > prize.y)
-            {
-                break;
-            }
+        long b = (long)Math.Round((prizeY - (prizeX / aX) * aY) / (bY - (bX / aX) * aY));
+        long a = (long)Math.Round((prizeX - b * bX) / aX);
 
-            while (true)
-            {
-                a_index++;
-                x_position += A.x;
-                y_position += A.y;
-
-                if (x_position > prize.x || y_position > prize.y)
-                {
-                    break;
-                }
-
-                if (x_position == prize.x && y_position == prize.y)
-                {
-                    var currentPrize = (a_index * 3) + b_index;
-                    if (currentPrize < result)
-                    {
-                        result = currentPrize;
-                    }
-                    break;
-                }
-            }
-            b_index++;
+        long result = 0;
+        var actualX = a * aX + b * bX;
+        var actualY = a * aY + b * bY;
+        if (actualX == prizeX && actualY == prizeY && a >= 0 && b >= 0)
+        {
+            result += a * 3 + b;
         }
 
         return result;
     }
+
+
+    //private static int CalculateCheapestWay(string[] clawMachineConfiguration)
+    //{
+    //    (int x, int y) A = ParseCoordinateLine(clawMachineConfiguration[0]);
+    //    (int x, int y) B = ParseCoordinateLine(clawMachineConfiguration[1]);
+    //    (int x, int y) prize = ParseCoordinateLine(clawMachineConfiguration[2]);
+
+    //    var result = int.MaxValue;
+    //    var b_index = 1;
+    //    while (true)
+    //    {
+    //        var x_position = B.x * b_index;
+    //        var y_position = B.y * b_index;
+    //        var a_index = 0;
+
+    //        if (x_position > prize.x || y_position > prize.y)
+    //        {
+    //            break;
+    //        }
+
+    //        while (true)
+    //        {
+    //            a_index++;
+    //            x_position += A.x;
+    //            y_position += A.y;
+
+    //            if (x_position > prize.x || y_position > prize.y)
+    //            {
+    //                break;
+    //            }
+
+    //            if (x_position == prize.x && y_position == prize.y)
+    //            {
+    //                var currentPrize = (a_index * 3) + b_index;
+    //                if (currentPrize < result)
+    //                {
+    //                    result = currentPrize;
+    //                }
+    //                break;
+    //            }
+    //        }
+    //        b_index++;
+    //    }
+
+    //    return result;
+    //}
 
     private static (int x, int y) ParseCoordinateLine(string line)
     {
