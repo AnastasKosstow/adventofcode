@@ -1,4 +1,6 @@
-﻿namespace adventofcode.builder.select;
+﻿using adventofcode.solutions;
+
+namespace adventofcode.builder.select;
 
 public class SolutionSelector
 {
@@ -46,4 +48,7 @@ public class SolutionSelector
 
     public ISelector<WarehouseWoes> Day15 => new Selector<WarehouseWoes>();
     public ISelector<WarehouseWoes> WarehouseWoes => new Selector<WarehouseWoes>();
+
+    public ISelector<ReindeerMaze> Day16 => new Selector<ReindeerMaze>();
+    public ISelector<ReindeerMaze> ReindeerMaze => new Selector<ReindeerMaze>();
 }
