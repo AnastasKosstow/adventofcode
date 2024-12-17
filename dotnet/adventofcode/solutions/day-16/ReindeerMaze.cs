@@ -8,18 +8,11 @@ public enum Direction
     West
 }
 
-public class PathStep
+public class PathStep(int row, int col, Direction facing)
 {
-    public int Row { get; set; }
-    public int Col { get; set; }
-    public Direction Facing { get; set; }
-
-    public PathStep(int row, int col, Direction facing)
-    {
-        Row = row;
-        Col = col;
-        Facing = facing;
-    }
+    public int Row { get; set; } = row;
+    public int Col { get; set; } = col;
+    public Direction Facing { get; set; } = facing;
 }
 
 public class State
@@ -59,7 +52,6 @@ public class ReindeerMaze : ISolution
 {
     public int Day => 16;
     public string Puzzle => "Reindeer Maze";
-
 
     private Lazy<char[,]> Input;
 

@@ -55,17 +55,21 @@ public class AdventOfCodeBuilder : IAdventOfCodeBuilder
             var originalColor = Console.ForegroundColor;
 
             Console.ForegroundColor = BorderColor;
-            Console.WriteLine(new string('-', 85));
+            Console.WriteLine();
+            Console.WriteLine("adventofcode - 2024");
+            Console.WriteLine();
+
+            Console.WriteLine(new string('-', 90));
 
             Console.Write($"|");
             Console.ForegroundColor = originalColor;
-            Console.Write($" {"Day",-12} | {"Puzzle",-20} | {"Result Part One",-20} | {"Result Part Two",-20} ");
+            Console.Write($" {"Day",-12} | {"Puzzle",-25} | {"Result Part One",-20} | {"Result Part Two",-20} ");
             Console.ForegroundColor = BorderColor;
             Console.Write($"|");
             Console.WriteLine();
 
             Console.ForegroundColor = BorderColor;
-            Console.WriteLine(new string('-', 85));
+            Console.WriteLine(new string('-', 90));
 
             Console.ForegroundColor = originalColor;
         }
@@ -75,7 +79,7 @@ public class AdventOfCodeBuilder : IAdventOfCodeBuilder
             var originalColor = Console.ForegroundColor;
 
             Console.ForegroundColor = BorderColor;
-            Console.WriteLine(new string('-', 85));
+            Console.WriteLine(new string('-', 90));
 
             Console.ForegroundColor = originalColor;
         }
@@ -87,13 +91,13 @@ public class AdventOfCodeBuilder : IAdventOfCodeBuilder
 
             if (!isFirstRow)
             {
-                Console.WriteLine(new string('-', 85));
+                Console.WriteLine(new string('-', 90));
             }
 
             Console.ForegroundColor = BorderColor;
             Console.Write($"|");
             Console.ForegroundColor = originalColor;
-            Console.Write($" Day {day,-8} | {puzzle,-20} | {solutionPartOne,-20} | {solutionPartTwo,-20} ");
+            Console.Write($" Day {day,-8} | {puzzle,-25} | {solutionPartOne,-20} | {solutionPartTwo,-20} ");
             Console.ForegroundColor = BorderColor;
             Console.Write($"|");
             Console.ForegroundColor = originalColor;
