@@ -83,7 +83,6 @@
     </tbody>
 </table>
 
-
 <br>
 
 > [!IMPORTANT]
@@ -126,6 +125,10 @@
 >    )
 >    .Run();
 > ```
+>
+> Result:
+> 
+> <img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/result.jpg" alt="csharp" width="700"/>
 
 ---
 
