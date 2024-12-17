@@ -63,7 +63,7 @@
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-15/WarehouseWoes.cs"><b>15</b></a></td>
         </tr>
         <tr>
-            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-16/ReindeerMaze.cs"><b>14</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-16/ReindeerMaze.cs"><b>16</b></a></td>
             <td align="center"><b>17</b></td>
             <td align="center"><b>18</b></td>
             <td align="center"><b>19</b></td>
