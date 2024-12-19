@@ -1,4 +1,4 @@
-﻿namespace adventofcode.solutions;
+﻿namespace adventofcode;
 
 public enum Direction
 {
