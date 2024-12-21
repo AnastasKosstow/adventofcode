@@ -55,4 +55,7 @@ public class SolutionSelector
 
     public ISelector<RAMRun> Day18 => new Selector<RAMRun>();
     public ISelector<RAMRun> RAMRun => new Selector<RAMRun>();
+
+    public ISelector<LinenLayout> Day19 => new Selector<LinenLayout>();
+    public ISelector<LinenLayout> LinenLayout => new Selector<LinenLayout>();
 }
