@@ -64,8 +64,8 @@
         </tr>
         <tr>
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-16/ReindeerMaze.cs"><b>16</b></a></td>
-            <td align="center"><b>17</b></td>
-            <td align="center"><b>18</b></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-17/ChronospatialComputer.cs"><b>17</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-18/RAMRun.cs"><b>18</b></a></td>
             <td align="center"><b>19</b></td>
             <td align="center"><b>20</b></td>
             <td align="center"><b>21</b></td>
