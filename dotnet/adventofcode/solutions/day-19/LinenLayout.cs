@@ -25,11 +25,11 @@ public class LinenLayout : ISolution
         Designs = lines.Skip(2).ToList();
     }
 
-    private bool FormDesign(string target, HashSet<string> cache)
+    private bool FormDesign(string target, Dictionary<string, byte> cache)
     {
-        if (cache.Contains(target))
+        if (cache.TryGetValue(target, out byte value))
         {
-            return true;
+            return value > 0;
         }
 
         if (string.IsNullOrEmpty(target))
@@ -45,12 +45,13 @@ public class LinenLayout : ISolution
                 string remaining = target[idx..];
                 if (FormDesign(remaining, cache))
                 {
+                    cache[target] = 1;
                     return true;
                 }
             }
         }
 
-        cache.Add(target);
+        cache[target] = 0;
         return false;
     }
 
@@ -87,7 +88,7 @@ public class LinenLayout : ISolution
         var result = 0;
         foreach (var design in Designs)
         {
-            if (FormDesign(design, new HashSet<string>()))
+            if (FormDesign(design, []))
             {
                 result++;
             }
@@ -102,7 +103,7 @@ public class LinenLayout : ISolution
         foreach (var design in Designs)
         {
             BigInteger designPatterns = 0;
-            FormDesignCombinations(design, new Dictionary<string, BigInteger>(), ref designPatterns);
+            FormDesignCombinations(design, [], ref designPatterns);
 
             if (designPatterns > 0)
             {
