@@ -55,7 +55,7 @@ public class LinenLayout : ISolution
         return false;
     }
 
-    private void FormDesignCombinations(string target, Dictionary<string, BigInteger> cache,  ref BigInteger patterns)
+    private void FormDesignCombinations(string target, Dictionary<string, BigInteger> cache, ref BigInteger patterns)
     {
         if (cache.TryGetValue(target, out BigInteger value))
         {
