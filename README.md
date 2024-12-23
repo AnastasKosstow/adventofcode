@@ -128,7 +128,7 @@
 >
 > Result:
 > 
-> <img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/result.jpg" alt="csharp" width="700"/>
+> <img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/result.jpg" alt="csharp" width="900"/>
 
 ---
 
