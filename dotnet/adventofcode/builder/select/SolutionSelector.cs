@@ -58,4 +58,7 @@ public class SolutionSelector
 
     public ISelector<LinenLayout> Day19 => new Selector<LinenLayout>();
     public ISelector<LinenLayout> LinenLayout => new Selector<LinenLayout>();
+
+    public ISelector<RaceCondition> Day20 => new Selector<RaceCondition>();
+    public ISelector<RaceCondition> RaceCondition => new Selector<RaceCondition>();
 }

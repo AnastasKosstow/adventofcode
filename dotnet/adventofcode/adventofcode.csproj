@@ -26,6 +26,9 @@
     <None Update="builder\inputs\day-19-input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="builder\inputs\day-20-input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="builder\inputs\day-3-input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
