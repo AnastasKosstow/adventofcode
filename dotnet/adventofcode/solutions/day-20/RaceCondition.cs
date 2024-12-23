@@ -1,4 +1,4 @@
-﻿using System.Data;
+﻿using System.Numerics;
 
 namespace adventofcode;
 
@@ -7,7 +7,11 @@ public class RaceCondition : ISolution
     public int Day => 20;
     public string Puzzle => "Race Condition";
 
-    private Lazy<(char[,] racetrack, int[] start)> Input;
+    private int Width;
+    private int Height;
+    private Vector2 Start;
+    private Vector2 End;
+    private HashSet<Vector2> Walls = [];
 
     public (string partOne, string partTwo) Execute()
     {
@@ -18,205 +22,106 @@ public class RaceCondition : ISolution
 
     public void SetInput(string inputSource)
     {
-        Input = new(() =>
+        var lines = File.ReadAllLines(inputSource);
+
+        Height = lines.Length;
+        Width = lines[0].Length;
+
+        for (int row = 0; row < lines.Length; row++)
         {
-            var lines = File.ReadAllLines(inputSource);
-
-            char[,] racetrack = new char[lines.Length, lines[0].Length];
-            int[] start = new int[2];
-            int[] end = new int[2];
-
-            for (int row = 0; row < lines.Length; row++)
+            for (int col = 0; col < lines[row].Length; col++)
             {
-                for (int col = 0; col < lines[row].Length; col++)
+                if (lines[row][col] == 'S')
                 {
-                    racetrack[row, col] = lines[row][col];
-                    if (lines[row][col] == 'S')
-                    {
-                        start = [row, col];
-                    }
+                    Start = new Vector2(row, col);
+                }
+                else if (lines[row][col] == 'E')
+                {
+                    End = new Vector2(row, col);
+                }
+                else if (lines[row][col] == '#')
+                {
+                    Walls.Add(new Vector2(row, col));
                 }
             }
-
-            return (racetrack, start);
-        });
+        }
     }
 
-    private Dictionary<(int, int), int> GetPositionPicoseconds()
+    private List<Vector2> Race(Vector2 start, Vector2 end)
     {
-        char[,] racetrack = Input.Value.racetrack;
-        int row = Input.Value.start[0];
-        int col = Input.Value.start[1];
+        var directions = new Vector2[4] { new(1, 0), new(0, 1), new(-1, 0), new(0, -1), };
 
-        var directions = new List<(int r, int c)>()
-        {
-            { (-1, 0) }, { (0, 1) }, { (1, 0) }, { (0, -1) },
-        };
+        Vector2 current = start;
+        List<Vector2> racetrack = [current];
 
-        var visited = new bool[racetrack.GetLength(0), racetrack.GetLength(1)];
-
-        int picoseconds = 0;
-        var positionPicoseconds = new Dictionary<(int, int), int>()
+        while (current != end)
         {
-            { (row, col), 0 }
-        };
-        while (row >= 0 && col >= 0 && row < racetrack.GetLength(0) && col < racetrack.GetLength(1))
-        {
-            if (racetrack[row, col] == 'E')
+            foreach (Vector2 dir in directions)
             {
-                break;
-            }
-
-            visited[row, col] = true;
-            foreach (var (directionRow, directionCol) in directions)
-            {
-                if ((racetrack[row + directionRow, col + directionCol] == '.' || racetrack[row + directionRow, col + directionCol] == 'E') && visited[row + directionRow, col + directionCol] == false)
+                Vector2 nextNode = current + dir;
+                if (Valid(nextNode) && !racetrack.Contains(nextNode) && !Walls.Contains(nextNode))
                 {
-                    row += directionRow;
-                    col += directionCol;
-
-                    positionPicoseconds[(row, col)] = ++picoseconds;
+                    current = nextNode;
+                    racetrack.Add(nextNode);
                     break;
                 }
             }
         }
 
-        return positionPicoseconds;
+        return racetrack;
     }
 
-    private Dictionary<int, int> GetAllCheatPicoseconds(Dictionary<(int, int), int> positionPicoseconds, int rule)
+    private int FindCheats(List<Vector2> racetrack,int minSaveDistance, int rule)
     {
-        var racetrack = Input.Value.racetrack;
-
-        var directions = new List<(int r, int c)>()
+        int cheats = 0;
+        for (int row = 0; row < racetrack.Count; row++)
         {
-            { (-1, 0) }, { (0, 1) }, { (1, 0) }, { (0, -1) },
-        };
-
-        var cheatsPicoseconds = new Dictionary<int, int>();
-        var cheats = new Dictionary<(int, int), Dictionary<(int, int), int>>();
-
-        var visited = new bool[racetrack.GetLength(0), racetrack.GetLength(1)];
-        foreach (var position in positionPicoseconds)
-        {
-            var row = position.Key.Item1;
-            var col = position.Key.Item2;
-
-            visited[row, col] = true;
-            foreach (var (directionRow, directionCol) in directions)
+            for (int col = row + 1; col < racetrack.Count; col++)
             {
-                var nextRow = row + directionRow;
-                var nextCol = col + directionCol;
-                if (nextRow >= 0 && nextCol >= 0 && nextRow < racetrack.GetLength(0) && nextCol < racetrack.GetLength(1))
+                int distance = ManhattanDistance(racetrack[row], racetrack[col]);
+                if (distance > rule)
                 {
-                    if (racetrack[nextRow, nextCol] == '#')
-                    {
-                        FindShortPath(row + directionRow, col + directionCol, position.Key, 1, []);
-                    }
+                    continue;
+                }
+
+                int saveDistance = col - row - distance;
+                if (saveDistance >= minSaveDistance)
+                {
+                    cheats++;
                 }
             }
         }
 
-        void FindShortPath(int row, int col, (int, int) startCoordinates, int step, List<(int, int)> path)
-        {
-            if (visited[row, col] == true || step > rule)
-            {
-                return;
-            }
+        return cheats;
+    }
 
-            path.Add((row, col));
-            foreach (var (directionRow, directionCol) in directions)
-            {
-                var nextRow = row + directionRow;
-                var nextCol = col + directionCol;
-                step++;
+    private bool Valid(Vector2 node)
+    {
+        int x = (int)node.X;
+        int y = (int)node.Y;
+        return x >= 0 && x <= Width && y >= 0 && y <= Height;
+    }
 
-                if (nextRow >= 0 && nextCol >= 0 && nextRow < racetrack.GetLength(0) && nextCol < racetrack.GetLength(1))
-                {
-                    if (path.Contains((nextRow, nextCol)))
-                    {
-                        step--;
-                        continue;
-                    }
-
-                    if (racetrack[nextRow, nextCol] == '#')
-                    {
-                        FindShortPath(row + directionRow, col + directionCol, startCoordinates, step, path);
-                    }
-
-                    else if (racetrack[nextRow, nextCol] == '.' || racetrack[nextRow, nextCol] == 'E')
-                    {
-                        if (positionPicoseconds[(startCoordinates.Item1, startCoordinates.Item2)] + step >= positionPicoseconds[(nextRow, nextCol)])
-                        {
-                            step--;
-                            continue;
-                        }
-
-                        var picoseconds = positionPicoseconds[(nextRow, nextCol)] -
-                            positionPicoseconds[(startCoordinates.Item1, startCoordinates.Item2)] - step;
-
-                        if (!cheats.TryGetValue(startCoordinates, out var values))
-                        {
-                            values = [];
-                            cheats[startCoordinates] = values;
-                        }
-
-
-                        if (values.TryAdd((nextRow, nextCol), picoseconds))
-                        {
-                            if (!cheatsPicoseconds.TryGetValue(picoseconds, out int cheatsPicosecondsValues))
-                            {
-                                cheatsPicosecondsValues = 0;
-                                cheatsPicoseconds[picoseconds] = cheatsPicosecondsValues;
-                            }
-
-                            cheatsPicoseconds[picoseconds] = ++cheatsPicosecondsValues;
-                        }
-                    }
-                }
-
-                step--;
-            }
-        }
-
-        return cheatsPicoseconds;
+    private int ManhattanDistance(Vector2 start, Vector2 end)
+    {
+        return (int)Math.Abs(start.X - end.X) + (int)Math.Abs(start.Y - end.Y);
     }
 
     private int SolutionPartOne()
     {
-        var positionPicoseconds = GetPositionPicoseconds();
-        var rule = 1;
+        var rule = 2;
+        List<Vector2> racetrack = Race(Start, End);
 
-        var cheats = GetAllCheatPicoseconds(positionPicoseconds, rule);
-
-        var result = 0;
-        foreach (var cheat in cheats)
-        {
-            if (cheat.Key >= 100)
-            {
-                result += cheat.Value;
-            }
-        }
-
+        var result = FindCheats(racetrack, 100, rule);
         return result;
     }
 
     private int SolutionPartTwo()
     {
-        var positionPicoseconds = GetPositionPicoseconds();
         var rule = 20;
+        List<Vector2> racetrack = Race(Start, End);
 
-        var cheats = GetAllCheatPicoseconds(positionPicoseconds, rule);
-
-        var result = 0;
-        foreach (var cheat in cheats)
-        {
-            if (cheat.Key >= 100)
-            {
-                result += cheat.Value;
-            }
-        }
-
+        var result = FindCheats(racetrack, 100, rule);
         return result;
     }
 }
