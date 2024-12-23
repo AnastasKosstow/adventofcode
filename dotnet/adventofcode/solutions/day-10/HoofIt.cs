@@ -1,6 +1,6 @@
 ﻿namespace adventofcode;
 
-public class HoofIt : ISolution
+public class HoofIt : ExecutionMeasure, ISolution
 {
     public int Day { get; } = 10;
     public string Puzzle { get; } = "Hoof It";
@@ -10,11 +10,14 @@ public class HoofIt : ISolution
     private static HashSet<(int, int, int, int)> HikingTrails = [];
     private static List<(int, int, int, int)> HikingTrailsWithUniquePaths = [];
 
-    public (string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
-        var partOne = SolutionPartOne();
-        var partTwo = SolutionPartTwo();
-        return (partOne.ToString(), partTwo.ToString());
+        var resultPartOne = SolutionPartOne();
+        var resultPartTwo = SolutionPartTwo();
+        var millisecondsPartOne = MeasureExecutionTime(SolutionPartOne);
+        var millisecondsPartTwo = MeasureExecutionTime(SolutionPartTwo);
+
+        return ((resultPartOne.ToString(), millisecondsPartOne), (resultPartTwo.ToString(), millisecondsPartTwo));
     }
 
     public void SetInput(string inputSource)

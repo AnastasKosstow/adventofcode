@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace adventofcode;
+﻿namespace adventofcode;
 
 internal class LinkedList
 {

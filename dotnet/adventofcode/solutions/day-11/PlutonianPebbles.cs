@@ -1,17 +1,20 @@
 ﻿namespace adventofcode;
 
-public class PlutonianPebbles : ISolution
+public class PlutonianPebbles : ExecutionMeasure, ISolution
 {
     public int Day { get; } = 11;
     public string Puzzle { get; } = "Plutonian Pebbles";
 
     private Lazy<decimal[]> Input;
 
-    public (string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
-        var partOne = SolutionPartOne();
-        var partTwo = SolutionPartTwo();
-        return (partOne.ToString(), partTwo.ToString());
+        var resultPartOne = SolutionPartOne();
+        var resultPartTwo = SolutionPartTwo();
+        var millisecondsPartOne = MeasureExecutionTime(SolutionPartOne);
+        var millisecondsPartTwo = MeasureExecutionTime(SolutionPartTwo);
+
+        return ((resultPartOne.ToString(), millisecondsPartOne), (resultPartTwo.ToString(), millisecondsPartTwo));
     }
 
     public void SetInput(string inputSource)
@@ -56,8 +59,6 @@ public class PlutonianPebbles : ISolution
         do
         {
             blinks--;
-
-            Console.WriteLine(stones.Length);
 
             var node = stones.Head;
             while (node != null)

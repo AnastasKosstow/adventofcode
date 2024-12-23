@@ -2,18 +2,21 @@
 
 namespace adventofcode;
 
-public class RAMRun : ISolution
+public class RAMRun : ExecutionMeasure, ISolution
 {
     public int Day => 18;
     public string Puzzle => "RAM Run";
 
     private Lazy<List<(int row, int col)>> Input;
 
-    public (string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
-        var partOne = SolutionPartOne();
-        var partTwo = SolutionPartTwo();
-        return (partOne.ToString(), partTwo);
+        var resultPartOne = SolutionPartOne();
+        var resultPartTwo = SolutionPartTwo();
+        var millisecondsPartOne = MeasureExecutionTime(SolutionPartOne);
+        var millisecondsPartTwo = MeasureExecutionTime(SolutionPartTwo);
+
+        return ((resultPartOne.ToString(), millisecondsPartOne), (resultPartTwo.ToString(), millisecondsPartTwo));
     }
 
     public void SetInput(string inputSource)

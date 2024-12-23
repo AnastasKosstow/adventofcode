@@ -1,17 +1,20 @@
 ﻿namespace adventofcode;
 
-public class PrintQueue : ISolution
+public class PrintQueue : ExecutionMeasure, ISolution
 {
     public int Day { get; } = 5;
     public string Puzzle { get; } = "Print Queue";
 
     private Lazy<(Memory<string> rules, Memory<string> updates)> Input;
 
-    public (string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
-        var partOne = SolutionPartOne();
-        var partTwo = SolutionPartTwo();
-        return (partOne.ToString(), partTwo.ToString());
+        var resultPartOne = SolutionPartOne();
+        var resultPartTwo = SolutionPartTwo();
+        var millisecondsPartOne = MeasureExecutionTime(SolutionPartOne);
+        var millisecondsPartTwo = MeasureExecutionTime(SolutionPartTwo);
+
+        return ((resultPartOne.ToString(), millisecondsPartOne), (resultPartTwo.ToString(), millisecondsPartTwo));
     }
 
     public void SetInput(string inputSource)

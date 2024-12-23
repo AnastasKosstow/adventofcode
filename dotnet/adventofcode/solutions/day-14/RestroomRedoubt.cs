@@ -25,7 +25,7 @@ public class Robot(int x, int y, int vx, int vy)
     }
 }
 
-public partial class RestroomRedoubt : ISolution
+public partial class RestroomRedoubt : ExecutionMeasure, ISolution
 {
     public int Day { get; } = 14;
     public string Puzzle { get; } = "Restroom Redoubt";
@@ -36,10 +36,12 @@ public partial class RestroomRedoubt : ISolution
     private readonly int width = 101;
     private readonly int height = 103;
 
-    public (string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
-        var partOne = SolutionPartOne();
-        return (partOne.ToString(), string.Empty);
+        var resultPartOne = SolutionPartOne();
+        var millisecondsPartOne = MeasureExecutionTime(SolutionPartOne);
+
+        return ((resultPartOne.ToString(), millisecondsPartOne), ("/", 0));
     }
 
     public void SetInput(string inputSource)

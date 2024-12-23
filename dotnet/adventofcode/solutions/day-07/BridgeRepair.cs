@@ -1,17 +1,20 @@
 ﻿namespace adventofcode;
 
-public class BridgeRepair : ISolution
+public class BridgeRepair : ExecutionMeasure, ISolution
 {
     public int Day { get; } = 7;
     public string Puzzle { get; } = "Bridge Repair";
 
     private Lazy<string[]> Input;
 
-    public (string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
-        var partOne = SolutionPartOne();
-        var partTwo = SolutionPartTwo();
-        return (partOne.ToString(), partTwo.ToString());
+        var resultPartOne = SolutionPartOne();
+        var resultPartTwo = SolutionPartTwo();
+        var millisecondsPartOne = MeasureExecutionTime(SolutionPartOne);
+        var millisecondsPartTwo = MeasureExecutionTime(SolutionPartTwo);
+
+        return ((resultPartOne.ToString(), millisecondsPartOne), (resultPartTwo.ToString(), millisecondsPartTwo));
     }
 
     public void SetInput(string inputSource)

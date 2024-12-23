@@ -1,7 +1,4 @@
-﻿using Microsoft.Win32;
-using System.Linq;
-
-namespace adventofcode;
+﻿namespace adventofcode;
 
 public class Register(long a, long b, long c)
 {
@@ -17,18 +14,21 @@ public class Computer(Register register, int[] instructions)
     public int[] Instructions { get; } = instructions;
 }
 
-public class ChronospatialComputer : ISolution
+public class ChronospatialComputer : ExecutionMeasure, ISolution
 {
     public int Day => 17;
     public string Puzzle => "Chronospatial Computer";
 
     private Lazy<Computer> Input;
 
-    public (string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
-        var partOne = SolutionPartOne();
-        var partTwo = SolutionPartTwo();
-        return (partOne, partTwo);
+        var resultPartOne = SolutionPartOne();
+        var resultPartTwo = SolutionPartTwo();
+        var millisecondsPartOne = MeasureExecutionTime(SolutionPartOne);
+        var millisecondsPartTwo = MeasureExecutionTime(SolutionPartTwo);
+
+        return ((resultPartOne.ToString(), millisecondsPartOne), (resultPartTwo.ToString(), millisecondsPartTwo));
     }
 
     public void SetInput(string inputSource)

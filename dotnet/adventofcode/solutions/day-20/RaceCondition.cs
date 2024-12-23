@@ -2,7 +2,7 @@
 
 namespace adventofcode;
 
-public class RaceCondition : ISolution
+public class RaceCondition : ExecutionMeasure, ISolution
 {
     public int Day => 20;
     public string Puzzle => "Race Condition";
@@ -13,11 +13,14 @@ public class RaceCondition : ISolution
     private Vector2 End;
     private HashSet<Vector2> Walls = [];
 
-    public (string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
-        var partOne = SolutionPartOne();
-        var partTwo = SolutionPartTwo();
-        return (partOne.ToString(), partTwo.ToString());
+        var resultPartOne = SolutionPartOne();
+        var resultPartTwo = SolutionPartTwo();
+        var millisecondsPartOne = MeasureExecutionTime(SolutionPartOne);
+        var millisecondsPartTwo = MeasureExecutionTime(SolutionPartTwo);
+
+        return ((resultPartOne.ToString(), millisecondsPartOne), (resultPartTwo.ToString(), millisecondsPartTwo));
     }
 
     public void SetInput(string inputSource)

@@ -1,17 +1,20 @@
 ﻿namespace adventofcode;
 
-public class HistorianHysteria : ISolution
+public class HistorianHysteria : ExecutionMeasure, ISolution
 {
     public int Day { get; } = 1;
     public string Puzzle { get; } = "Historian Hysteria";
 
     private Lazy<(Memory<int> left, Memory<int> right)> Input;
 
-    public (string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
-        var partOne = SolutionPartOne();
-        var partTwo = SolutionPartTwo();
-        return (partOne.ToString(), partTwo.ToString());
+        var resultPartOne = SolutionPartOne();
+        var resultPartTwo = SolutionPartTwo();
+        var millisecondsPartOne = MeasureExecutionTime(SolutionPartOne);
+        var millisecondsPartTwo = MeasureExecutionTime(SolutionPartTwo);
+
+        return ((resultPartOne.ToString(), millisecondsPartOne), (resultPartTwo.ToString(), millisecondsPartTwo));
     }
 
     public void SetInput(string inputSource)

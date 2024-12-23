@@ -6,5 +6,5 @@ public interface ISolution
     string Puzzle { get; }
 
     void SetInput(string inputSource);
-    (string partOne, string partTwo) Execute();
+    ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute();
 }

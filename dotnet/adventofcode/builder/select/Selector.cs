@@ -16,7 +16,7 @@ public class Selector<T> : ISelector<T> where T : ISolution, new()
         _solution.SetInput(path);
     }
 
-    public (string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
         return _solution.Execute();
     }

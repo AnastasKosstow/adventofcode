@@ -4,7 +4,7 @@ public interface ISelector
 {
     int Day { get; }
     string Puzzle { get; }
-    (string partOne, string partTwo) Execute();
+    ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute();
 }
 
 public interface ISelector<out T> : ISelector where T : ISolution

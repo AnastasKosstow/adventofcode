@@ -1,17 +1,20 @@
 ﻿namespace adventofcode;
 
-public class DiskFragmenter : ISolution
+public class DiskFragmenter : ExecutionMeasure, ISolution
 {
     public int Day { get; } = 9;
     public string Puzzle { get; } = "Disk Fragmenter";
 
     private Lazy<int[]> Input;
 
-    public(string partOne, string partTwo) Execute()
+    public ((string result, double milliseconds) partOne, (string result, double milliseconds) partTwo) Execute()
     {
-        var partOne = SolutionPartOne();
-        var partTwo = SolutionPartTwo();
-        return (partOne.ToString(), partTwo.ToString());
+        var resultPartOne = SolutionPartOne();
+        var resultPartTwo = SolutionPartTwo();
+        var millisecondsPartOne = MeasureExecutionTime(SolutionPartOne);
+        var millisecondsPartTwo = MeasureExecutionTime(SolutionPartTwo);
+
+        return ((resultPartOne.ToString(), millisecondsPartOne), (resultPartTwo.ToString(), millisecondsPartTwo));
     }
 
     public void SetInput(string inputSource)
