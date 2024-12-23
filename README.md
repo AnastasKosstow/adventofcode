@@ -125,10 +125,10 @@
 >    )
 >    .Run();
 > ```
->
-> Result:
-> 
-> <img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/result.jpg" alt="csharp" width="1000"/>
+
+<br>
+
+<img src="https://github.com/AnastasKosstow/adventofcode/blob/main/assets/result.jpg" alt="csharp" width="1000"/>
 
 ---
 
