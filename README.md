@@ -67,7 +67,7 @@
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-17/ChronospatialComputer.cs"><b>17</b></a></td>
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-18/RAMRun.cs"><b>18</b></a></td>
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-19/LinenLayout.cs"><b>19</b></a></td>
-            <td align="center"><b>20</b></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-20/RaceCondition.cs"><b>20</b></a></td>
             <td align="center"><b>21</b></td>
             <td align="center"><b>22</b></td>
         </tr>
