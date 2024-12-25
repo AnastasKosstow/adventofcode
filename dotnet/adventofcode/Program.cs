@@ -3,6 +3,5 @@
 var adventofcode = new AdventOfCodeBuilder();
 
 adventofcode
-    .Select(
-        selector => selector.Day22)
+    .Select(selector => selector.Day21)
     .Run();

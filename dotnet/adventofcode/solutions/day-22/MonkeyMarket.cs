@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace adventofcode;
+﻿namespace adventofcode;
 
 public class MonkeyMarket : ExecutionMeasure, ISolution
 {

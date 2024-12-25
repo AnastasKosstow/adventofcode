@@ -67,4 +67,7 @@ public class SolutionSelector
 
     public ISelector<MonkeyMarket> Day22 => new Selector<MonkeyMarket>();
     public ISelector<MonkeyMarket> MonkeyMarket => new Selector<MonkeyMarket>();
+
+    public ISelector<LANParty> Day23 => new Selector<LANParty>();
+    public ISelector<LANParty> LANParty => new Selector<LANParty>();
 }
