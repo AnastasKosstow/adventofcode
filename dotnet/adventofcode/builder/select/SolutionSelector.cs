@@ -70,4 +70,10 @@ public class SolutionSelector
 
     public ISelector<LANParty> Day23 => new Selector<LANParty>();
     public ISelector<LANParty> LANParty => new Selector<LANParty>();
+
+    public ISelector<CrossedWires> Day24 => new Selector<CrossedWires>();
+    public ISelector<CrossedWires> CrossedWires => new Selector<CrossedWires>();
+
+    public ISelector<CodeChronicle> Day25 => new Selector<CodeChronicle>();
+    public ISelector<CodeChronicle> CodeChronicle => new Selector<CodeChronicle>();
 }
