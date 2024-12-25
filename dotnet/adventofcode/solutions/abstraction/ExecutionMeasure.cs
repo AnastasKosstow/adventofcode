@@ -8,7 +8,7 @@ public abstract class ExecutionMeasure
     {
         var stopwatch = new Stopwatch();
         var actionTimes = new List<double>();
-        for (int index = 0; index < 3; index++)
+        for (int index = 0; index < 2; index++)
         {
             stopwatch.Start();
             action();

@@ -61,4 +61,10 @@ public class SolutionSelector
 
     public ISelector<RaceCondition> Day20 => new Selector<RaceCondition>();
     public ISelector<RaceCondition> RaceCondition => new Selector<RaceCondition>();
+
+    public ISelector<KeypadConundrum> Day21 => new Selector<KeypadConundrum>();
+    public ISelector<KeypadConundrum> KeypadConundrum => new Selector<KeypadConundrum>();
+
+    public ISelector<MonkeyMarket> Day22 => new Selector<MonkeyMarket>();
+    public ISelector<MonkeyMarket> MonkeyMarket => new Selector<MonkeyMarket>();
 }
