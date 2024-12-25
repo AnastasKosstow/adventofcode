@@ -59,17 +59,17 @@ public class AdventOfCodeBuilder : IAdventOfCodeBuilder
             Console.WriteLine("adventofcode - 2024");
             Console.WriteLine();
 
-            Console.WriteLine(new string('-', 135));
+            Console.WriteLine(new string('-', 106));
 
             Console.Write($"|");
             Console.ForegroundColor = originalColor;
-            Console.Write($" {"Day",-12} | {"Puzzle",-25} | {"Result Part One",-30} | {"Time",-9} | {"Result Part Two",-30} | {"Time",-10}");
+            Console.Write($" {"Day",-6} | {"Puzzle",-25} | {"Result Part One",-20} | {"Time",-8} | {"Result Part Two",-20} | {"Time",-9}");
             Console.ForegroundColor = BorderColor;
             Console.Write($"|");
             Console.WriteLine();
 
             Console.ForegroundColor = BorderColor;
-            Console.WriteLine(new string('-', 135));
+            Console.WriteLine(new string('-', 106));
 
             Console.ForegroundColor = originalColor;
         }
@@ -79,7 +79,7 @@ public class AdventOfCodeBuilder : IAdventOfCodeBuilder
             var originalColor = Console.ForegroundColor;
 
             Console.ForegroundColor = BorderColor;
-            Console.WriteLine(new string('-', 135));
+            Console.WriteLine(new string('-', 106));
 
             Console.ForegroundColor = originalColor;
         }
@@ -91,24 +91,24 @@ public class AdventOfCodeBuilder : IAdventOfCodeBuilder
 
             if (!isFirstRow)
             {
-                Console.WriteLine(new string('-', 135));
+                Console.WriteLine(new string('-', 106));
             }
 
             Console.ForegroundColor = BorderColor;
             Console.Write($"|");
             Console.ForegroundColor = originalColor;
-            Console.Write($" Day {day,-8} | {puzzle,-25} | {partOne.result,-30} | ");
+            Console.Write($" Day {day,-2} | {puzzle,-25} | {partOne.result,-20} | ");
 
             var (partOneColor, partOneTime) = FormatTime(partOne.milliseconds);
             Console.ForegroundColor = partOneColor;
-            Console.Write($"{partOneTime,-10}");
+            Console.Write($"{partOneTime,-9}");
 
             Console.ForegroundColor = originalColor;
-            Console.Write($"| {partTwo.result,-30} | ");
+            Console.Write($"| {partTwo.result,-20} | ");
 
             var (partTwoColor, partTwoTime) = FormatTime(partTwo.milliseconds);
             Console.ForegroundColor = partTwoColor;
-            Console.Write($"{partTwoTime,-10}");
+            Console.Write($"{partTwoTime,-9}");
 
             Console.ForegroundColor = BorderColor;
             Console.Write($"|");
