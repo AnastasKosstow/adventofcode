@@ -72,7 +72,7 @@
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-22/MonkeyMarket.cs"><b>22</b></a></td>
         </tr>
         <tr>
-            <td align="center"><b>23</b></td>
+           <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-23/LANParty.cs"><b>23</b></a></td>
             <td align="center"><b>24</b></td>
             <td align="center"><b>25</b></td>
             <td align="center"> </td>
