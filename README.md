@@ -68,8 +68,8 @@
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-18/RAMRun.cs"><b>18</b></a></td>
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-19/LinenLayout.cs"><b>19</b></a></td>
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-20/RaceCondition.cs"><b>20</b></a></td>
-            <td align="center"><b>21</b></td>
-            <td align="center"><b>22</b></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-21/KeypadConundrum.cs"><b>21</b></a></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-22/MonkeyMarket.cs"><b>22</b></a></td>
         </tr>
         <tr>
             <td align="center"><b>23</b></td>
