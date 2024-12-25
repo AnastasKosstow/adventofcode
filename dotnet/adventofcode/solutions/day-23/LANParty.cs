@@ -48,7 +48,7 @@ public class LANParty : ExecutionMeasure, ISolution
     private Dictionary<string, int> Degree = [];
     private HashSet<string> NodesSet = [];
 
-    private void FindCliques(HashSet<HashSet<string>> networkGroups, List<string> nodes, int startIndex, HashSet<string> currentNetworkGroup, int targetSize)
+    private void FindNetworkGroups(HashSet<HashSet<string>> networkGroups, List<string> nodes, int startIndex, HashSet<string> currentNetworkGroup, int targetSize)
     {
         if (currentNetworkGroup.Count == targetSize)
         {
@@ -68,7 +68,7 @@ public class LANParty : ExecutionMeasure, ISolution
 
             if (IsNetworkGroup(currentNetworkGroup))
             {
-                FindCliques(networkGroups, nodes, idx + 1, currentNetworkGroup, targetSize);
+                FindNetworkGroups(networkGroups, nodes, idx + 1, currentNetworkGroup, targetSize);
             }
             currentNetworkGroup.Remove(candidateNode);
         }
@@ -98,7 +98,7 @@ public class LANParty : ExecutionMeasure, ISolution
         HashSet<HashSet<string>> networkGroups = [];
         List<string> nodes = [.. NodesSet];
 
-        FindCliques(networkGroups, nodes, 0, [], 3);
+        FindNetworkGroups(networkGroups, nodes, 0, [], 3);
 
         int result = 0;
         foreach (var networkGroup in networkGroups)
