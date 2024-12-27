@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace adventofcode;
+﻿namespace adventofcode;
 
 public class CrossedWires : ExecutionMeasure, ISolution
 {
@@ -79,6 +77,8 @@ public class CrossedWires : ExecutionMeasure, ISolution
             BuildGraph();
         }
 
+        var bitwiseOperationCache = new Dictionary<string, byte>();
+
         var bits = new List<byte>();
         for (int idx = 0; idx < Z_Wires.Count; idx++)
         {
@@ -91,14 +91,22 @@ public class CrossedWires : ExecutionMeasure, ISolution
 
         byte WireValue(Node node)
         {
-            if (!Wires.TryGetValue(node.Left.Value, out var left))
+            if (!bitwiseOperationCache.TryGetValue(node.Left.Value, out byte left))
             {
-                left = WireValue(node.Left);
+                if (!Wires.TryGetValue(node.Left.Value, out left))
+                {
+                    left = WireValue(node.Left);
+                }
+                bitwiseOperationCache[node.Left.Value] = left;
             }
 
-            if (!Wires.TryGetValue(node.Right.Value, out var right))
+            if (!bitwiseOperationCache.TryGetValue(node.Right.Value, out byte right))
             {
-                right = WireValue(node.Right);
+                if (!Wires.TryGetValue(node.Right.Value, out right))
+                {
+                    right = WireValue(node.Right);
+                }
+                bitwiseOperationCache[node.Right.Value] = right;
             }
 
             return node.BitwiseOperation switch
@@ -109,6 +117,7 @@ public class CrossedWires : ExecutionMeasure, ISolution
             };
         }
     }
+
 
     private string SolutionPartTwo()
     {
