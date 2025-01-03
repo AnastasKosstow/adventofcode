@@ -43,15 +43,13 @@ public static class Extensions
         {
             if (isLock)
             {
-                int height = 0;
                 for (int row = 1; row < rows; row++)
                 {
                     if (matrix[row, col] != '#')
                     {
-                        heights[col] = height;
+                        heights[col] = row - 1;
                         break;
                     }
-                    height++;
                 }
             }
             else
