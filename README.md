@@ -74,7 +74,7 @@
         <tr>
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-23/LANParty.cs"><b>23</b></a></td>
             <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-24/CrossedWires.cs"><b>24</b></a></td>
-            <td align="center"><b>25</b></td>
+            <td align="center"><a href="https://github.com/AnastasKosstow/adventofcode/blob/main/dotnet/adventofcode/solutions/day-25/CodeChronicle.cs"><b>25</b></a></td>
             <td align="center"> </td>
             <td align="center"> </td>
             <td align="center"> </td>
