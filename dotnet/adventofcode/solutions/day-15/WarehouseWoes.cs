@@ -136,8 +136,8 @@ public class WarehouseWoes : ExecutionMeasure, ISolution
         return result;
     }
 
-    private long SolutionPartTwo()
+    private string SolutionPartTwo()
     {
-        return 0;
+        return "/";
     }
 }

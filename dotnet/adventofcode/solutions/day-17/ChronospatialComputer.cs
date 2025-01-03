@@ -143,7 +143,7 @@ public class ChronospatialComputer : ExecutionMeasure, ISolution
 
     private string SolutionPartTwo()
     {
-        return "";
+        return "/";
     }
 }
 
